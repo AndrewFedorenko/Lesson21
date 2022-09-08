@@ -10,10 +10,8 @@ public class PathsTest {
 
     public static void main(String[] args) {
         // first anonymous runnable class with simple path calculation
-        Runnable runSimple = new Runnable() {
+        Runnable runSimple = ()->{
             final int [][][]array = new int[xMax][yMax][zMax];
-            @Override
-            public void run()
                 {for (int x = 0; x < xMax; x++) {
                     for (int y = 0; y < yMax; y++) {
                         for (int z = 0; z < zMax; z++) {
@@ -28,7 +26,6 @@ public class PathsTest {
                         }
                     }
                 };
-
                     printArray("Simple", array);
                 }
         };
