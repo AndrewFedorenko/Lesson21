@@ -28,7 +28,8 @@ public class PathsTest {
                         }
                     }
                 };
-                    printArray("Simple path", array);
+
+                    printArray("Simple", array);
                 }
         };
         // second anonymous runnable class with recursion path calculation
@@ -37,7 +38,7 @@ public class PathsTest {
             @Override
             public void run()
                 {pathsRecursion(xMax-1, yMax-1, zMax-1);
-                    printArray("Recursion path", array);}
+                    printArray("Recursion",array);}
             int pathsRecursion(int x, int y, int z){
                 if (array[x][y][z] != 0) {
                     return array[x][y][z];
@@ -68,15 +69,15 @@ public class PathsTest {
             }
         };
     }
-
-    static void printArray(String descr, int[][][]array){
-        System.out.println(descr);
+    static synchronized void printArray(String descr, int[][][] array){
+        {
+        System.out.println(descr + " path");
         for (int x = 0; x < xMax; x++) {
-            System.out.println(" x = " + x);
+            System.out.println(descr + " x = " + x);
             for (int y = 0; y < yMax; y++) {
                 System.out.println(Arrays.toString(array[x][y]));
             }
-
+        }
         }
     }
 }
